@@ -1,26 +1,26 @@
+var words = [
+  "Traffic",
+  "Memento",
+  "Magnolia",
+  "Monster",
+  "Trainspotting",
+  "Fargo",
+  "Batman",
+  "Inception",
+  "Platoon",
+  "Ratatouille",
+  "Superman",
+  "Dogma",
+  "Arrival",
+  "Scarface",
+  "Aliens",
+  "Halloween",
+  "Eraserhead",
+  "Jaws",
+  "Chinatown",
+  "Z"
+];
 var game = {
-  words: [
-    "Traffic",
-    "Memento",
-    "Magnolia",
-    "Monster",
-    "Trainspotting",
-    "Fargo",
-    "Batman",
-    "Inception",
-    "Platoon",
-    "Ratatouille",
-    "Superman",
-    "Dogma",
-    "Arrival",
-    "Scarface",
-    "Aliens",
-    "Halloween",
-    "Eraserhead",
-    "Jaws",
-    "Chinatown",
-    "Z"
-  ],
   wins: 0,
   guessesLeft: 15
 };

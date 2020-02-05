@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Movie Title Guess Game, Buddy!</title>
-    <script src="assets/javascript/game.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -26,14 +25,14 @@
         </div>
         <!-- ^ close tag for far left column-->
         <div class="col-md-8 bg-primary text-center">
-          <h1>Press any letter to start a game!</h1>
+          <h1 id="header">Press any letter to start a game!</h1>
         </div>
         <!-- ^ close tag for mid column-->
         <div class="col-md-2 bg-primary justify-content-center">
           <ul class="list-group">
             <li class="list-group-item">
               Wins, Boiiii!
-              <span id="Guesses" class="badge bg-danger">0</span>
+              <span id="Wins" class="badge bg-danger">0</span>
             </li>
           </ul>
         </div>
@@ -53,5 +52,6 @@
       ></div>
     </div>
     <!-- ^ close tag for "container"-->
+    <script src="assets/javascript/game.js"></script>
   </body>
 </html>
