@@ -30,6 +30,8 @@ var headerText = document.getElementById("header");
 var wordText = document.getElementById("currentword");
 var display = [];
 var x;
+var usedLetter = document.getElementById("guessed");
+var badguess;
 console.log(currentWord);
 console.log(currentWord.length);
 // declaring variables
@@ -40,7 +42,6 @@ document.onkeypress = function(event) {
   //   getting the letter pressed
   for (var i = 0; i < currentWord.length; i++) {
     display[i] = " - ";
-    console.log(display);
   }
   // creating an array to display the empty spaces at start to user
   x = display.join(" ");
@@ -55,12 +56,20 @@ document.onkeypress = function(event) {
   console.log(currentWord[0]);
   console.log(letter);
   for (i = 0; i < currentWord.length; i++) {
-    if (currentWord[i] != letter) {
-      var badguess = true;
-      if (badguess === true) {
+    if (currentWord[i] === letter) {
+      if (display.includes(currentWord[i])) {
+        display.pop(currentWord[i]);
+      }
+      display.push(currentWord[i]);
+    } else {
+      if (lettersGuessed.includes(letter)) {
+        lettersGuessed.pop(letter);
+        lettersGuessed.push(letter);
+      } else {
         lettersGuessed.push(letter);
       }
-      console.log(lettersGuessed);
     }
+    usedLetter.textContent = lettersGuessed;
+    console.log(lettersGuessed);
   }
 };

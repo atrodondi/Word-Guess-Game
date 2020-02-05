@@ -1,28 +1,31 @@
-var words = [
-  "Traffic",
-  "Memento",
-  "Magnolia",
-  "Monster",
-  "Trainspotting",
-  "Fargo",
-  "Batman",
-  "Inception",
-  "Platoon",
-  "Ratatouille",
-  "Superman",
-  "Dogma",
-  "Arrival",
-  "Scarface",
-  "Aliens",
-  "Halloween",
-  "Eraserhead",
-  "Jaws",
-  "Chinatown",
-  "Z"
-];
 var game = {
   wins: 0,
-  guessesLeft: 15
+  guessesLeft: 15,
+  winText: document.getElementById("Wins"),
+  guessesText: document.getElementById("Guesses"),
+  wordText: document.getElementById("currentword"),
+  words: [
+    "Traffic",
+    "Memento",
+    "Magnolia",
+    "Monster",
+    "Trainspotting",
+    "Fargo",
+    "Batman",
+    "Inception",
+    "Platoon",
+    "Ratatouille",
+    "Superman",
+    "Dogma",
+    "Arrival",
+    "Scarface",
+    "Aliens",
+    "Halloween",
+    "Eraserhead",
+    "Jaws",
+    "Chinatown",
+    "Z"
+  ]
 };
 
 var currentword = game.words[Math.floor(Math.random() * words.length)];
