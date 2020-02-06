@@ -34,26 +34,37 @@ var usedLetter = document.getElementById("guessed");
 var badguess;
 console.log(currentWord);
 console.log(currentWord.length);
+
+window.onload = function() {
+  console.log("hello");
+  for (var i = 0; i < currentWord.length; i++) {
+    display[i] = " - ";
+    x = display;
+    wordText.textContent = x;
+  }
+};
+
 // declaring variables
 
 document.onkeypress = function(event) {
   var letter = event.key.toLowerCase();
   console.log(letter);
+
+  // for (var i = 0; i < currentWord.length; i++) {
+  //   display[i] = " - ";
   //   getting the letter pressed
-  for (var i = 0; i < currentWord.length; i++) {
-    display[i] = " - ";
-  }
+
   // creating an array to display the empty spaces at start to user
-  x = display.join(" ");
+
   // googled how to turn it into a string without commas,
-  wordText.textContent = x;
+
   headerText.textContent =
     "The Game has started! Guess the One Word Movie Title!";
   // THE GAME HAS STARTED NOW
-  console.log(currentWord);
+  // console.log(currentWord);
   console.log(lettersGuessed);
   console.log(currentWord.length);
-  console.log(currentWord[0]);
+  // console.log(currentWord[0]);
   console.log(letter);
   for (i = 0; i < currentWord.length; i++) {
     if (currentWord[i] === letter) {
