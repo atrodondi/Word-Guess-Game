@@ -55,14 +55,12 @@ document.onkeypress = function(event) {
       var badGuess = true;
     }
   }
-  if ((badGuess = true)) {if ()};
-    
-  
-    game.guessedLetters.push(guess);
-  }
-  console.log(game.guessedLetters);
+  // if ((badGuess = true)) {if ()};
 
-  // if (guess === word[i]) {
-  //   game.display[i].push(guess);
-  //   console.log(game.display);
+  game.guessedLetters.push(guess);
 };
+console.log(game.guessedLetters);
+
+// if (guess === word[i]) {
+//   game.display[i].push(guess);
+//   console.log(game.display);
