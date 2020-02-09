@@ -108,6 +108,4 @@ document.onkeypress = function(event) {
   }
 
   guessesText.textContent = guessesLeft;
-  console.log(guessesLeft);
-  console.log(guessesText);
 };
