@@ -1,5 +1,13 @@
 var words = [
   "traffic",
+  "trainspotting",
+  "frozen",
+  "swordfish",
+  "heat",
+  "hackers",
+  "dracula",
+  "godzilla",
+  "cliffhanger",
   "memento",
   "magnolia",
   "monster",
@@ -17,7 +25,11 @@ var words = [
   "jaws",
   "chinatown",
   "eraserhead",
-  "z"
+  "z",
+  "clue",
+  "her",
+  "transformers",
+  "braveheart"
 ];
 var wins = 0;
 var guessesLeft = 15;
@@ -32,11 +44,14 @@ console.log(currentWord);
 console.log(currentWord.length);
 
 var display = [];
-for (var i = 0; i < currentWord.length; i++) {
-  display.push(" _ ");
-  var displayString = display.join("");
-  wordText.textContent = displayString;
+function generate() {
+  for (var i = 0; i < currentWord.length; i++) {
+    display.push(" _ ");
+    var displayString = display.join("");
+    wordText.textContent = displayString;
+  }
 }
+generate();
 
 // declaring variables
 
@@ -57,10 +72,23 @@ document.onkeypress = function(event) {
     console.log(display);
     displayString = display.join("");
     wordText.textContent = displayString;
+
+    // right below is the WinCons and what happens
     if (displayString == currentWord) {
       setTimeout(function() {
+        wins++;
+        winsText.textContent = wins;
         var playAgain = confirm("YOU WIN!! Play again?");
-        location.reload(playAgain);
+        display = [];
+        currentWord = words[Math.floor(Math.random() * words.length)];
+        usedLetter.textContent = "";
+        lettersGuessed = [];
+        generate(playAgain);
+        console.log(currentWord);
+        guessesLeft = 15;
+        guessesText.textContent = guessesLeft;
+        // cant use reload, i need wins to stay, need teo restart function
+        // location.reload(playAgain);
       }, 400);
     }
   } else {
@@ -70,6 +98,7 @@ document.onkeypress = function(event) {
     } else {
       lettersGuessed.push(letter);
       usedLetter.append(letter);
+      // lose conditions below here
       if (guessesLeft === 0) {
         alert(" you lose!");
       } else {
