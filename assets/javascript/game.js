@@ -3,7 +3,6 @@ var words = [
   "memento",
   "magnolia",
   "monster",
-  "trainspotting",
   "fargo",
   "batman",
   "inception",
@@ -15,9 +14,9 @@ var words = [
   "scarface",
   "aliens",
   "halloween",
-  "eraserhead",
   "jaws",
   "chinatown",
+  "eraserhead",
   "z"
 ];
 var wins = 0;
@@ -28,20 +27,16 @@ var winsText = document.getElementById("Wins");
 var guessesText = document.getElementById("Guesses");
 var headerText = document.getElementById("header");
 var wordText = document.getElementById("currentword");
-var x;
-var display;
 var usedLetter = document.getElementById("guessed");
-var badguess;
 console.log(currentWord);
 console.log(currentWord.length);
 
-window.onload = function() {
-  display = "";
-  for (var i = 0; i < currentWord.length; i++) {
-    display = display + " _ ";
-    wordText.textContent = display;
-  }
-};
+var display = [];
+for (var i = 0; i < currentWord.length; i++) {
+  display.push(" _ ");
+  var displayString = display.join("");
+  wordText.textContent = displayString;
+}
 
 // declaring variables
 
@@ -54,11 +49,22 @@ document.onkeypress = function(event) {
   // if the guess (letter) is in our random word, then....
   if (currentWord.indexOf(letter) > -1) {
     console.log("correct guess");
-    console.log(display);
     console.log(currentWord.indexOf(letter));
+    console.log(currentWord.lastIndexOf(letter));
     var x = currentWord.indexOf(letter);
-    display[x] = letter;
-    console.log(display[x]);
+    var y = currentWord.lastIndexOf(letter);
+    console.log(x);
+    console.log(y);
+
+    for (var i = 0; i < currentWord.length; i++) {
+      if (currentWord[i] == letter) {
+        display[i] = currentWord[i];
+      }
+    }
+
+    console.log(display);
+    displayString = display.join("");
+    wordText.textContent = displayString;
   } else {
     console.log("wrong guess");
   }
