@@ -48,14 +48,6 @@ document.onkeypress = function(event) {
 
   // if the guess (letter) is in our random word, then....
   if (currentWord.indexOf(letter) > -1) {
-    console.log("correct guess");
-    console.log(currentWord.indexOf(letter));
-    console.log(currentWord.lastIndexOf(letter));
-    var x = currentWord.indexOf(letter);
-    var y = currentWord.lastIndexOf(letter);
-    console.log(x);
-    console.log(y);
-
     for (var i = 0; i < currentWord.length; i++) {
       if (currentWord[i] == letter) {
         display[i] = currentWord[i];
@@ -65,29 +57,28 @@ document.onkeypress = function(event) {
     console.log(display);
     displayString = display.join("");
     wordText.textContent = displayString;
+    if (displayString == currentWord) {
+      setTimeout(function() {
+        var playAgain = confirm("YOU WIN!! Play again?");
+        location.reload(playAgain);
+      }, 400);
+    }
   } else {
     console.log("wrong guess");
+    if (lettersGuessed.includes(letter)) {
+      alert("you already guessed that one");
+    } else {
+      lettersGuessed.push(letter);
+      usedLetter.append(letter);
+      if (guessesLeft === 0) {
+        alert(" you lose!");
+      } else {
+        guessesLeft--;
+      }
+    }
   }
 
-  // console.log(lettersGuessed);
-  // console.log(currentWord.length);
-
-  // console.log(letter);
-  // for (i = 0; i < currentWord.length; i++) {
-  //   if (currentWord[i] === letter) {
-  //     if (display.includes(currentWord[i])) {
-  //       display.pop(currentWord[i]);
-  //     }
-  //     display.push(currentWord[i]);
-  //   } else {
-  //     if (lettersGuessed.includes(letter)) {
-  //       lettersGuessed.pop(letter);
-  //       lettersGuessed.push(letter);
-  //     } else {
-  //       lettersGuessed.push(letter);
-  //     }
-  //   }
-  //   usedLetter.textContent = lettersGuessed;
-  //   console.log(lettersGuessed);
-  // }
+  guessesText.textContent = guessesLeft;
+  console.log(guessesLeft);
+  console.log(guessesText);
 };
