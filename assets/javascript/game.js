@@ -99,8 +99,15 @@ document.onkeypress = function(event) {
       lettersGuessed.push(letter);
       usedLetter.append(letter);
       // lose conditions below here
-      if (guessesLeft === 0) {
-        alert(" you lose!");
+      if (guessesLeft == 0) {
+        var x = alert(" you lose!");
+        usedLetter.textContent = "";
+        lettersGuessed = [];
+        guessesLeft = 15;
+        guessesText.textContent = guessesLeft;
+        display = [];
+        currentWord = words[Math.floor(Math.random() * words.length)];
+        generate(x);
       } else {
         guessesLeft--;
       }
