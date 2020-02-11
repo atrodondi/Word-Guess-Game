@@ -95,7 +95,8 @@ document.onkeypress = function(event) {
       alert("you already guessed that one");
     } else {
       lettersGuessed.push(letter);
-      usedLetter.append(letter);
+      var upper = letter.toUpperCase();
+      usedLetter.append(upper + " ");
       // lose conditions below here
       if (guessesLeft == 0) {
         var x = alert(" you lose!");
