@@ -87,8 +87,6 @@ document.onkeypress = function(event) {
         console.log(currentWord);
         guessesLeft = 15;
         guessesText.textContent = guessesLeft;
-        // cant use reload, i need wins to stay, need teo restart function
-        // location.reload(playAgain);
       }, 400);
     }
   } else {
